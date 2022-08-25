@@ -16,9 +16,9 @@ export default class Login extends Component {
         console.log("Dijiste click");
       }
     return (
-      <View>
+      <View style={styles.screen}>
         <Text style={styles.textoudg}> UDG </Text>
-        <Image style={styles.logoudg} source={require("./Imagenes/logoudg.png")}/>
+        <Image style={styles.logoudg} source={require("./Imagen/logo.png")}/>
         <TextInput style={styles.input} placeholder="codigo" />
         <TextInput style={styles.input} placeholder="nip" secureTextEntry={true}/>
         <View style={styles.boton}>
@@ -27,10 +27,11 @@ export default class Login extends Component {
       </View>
     );
   }
+  
 }//declaracion de variables
 const styles = StyleSheet.create({
 screen:{
-  backgroundColor: "blue",
+  backgroundColor: "yellow",
 },
 textoudg:{
 fontSize:40,
