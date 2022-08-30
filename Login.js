@@ -1,7 +1,8 @@
 //importacion de los objetos
 import React, { Component } from 'react';
 import { View, Text ,StyleSheet,Image,TextInput, Button} from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,12 @@ export default class Login extends Component {
   render() {
       //programacion en JS de los objetos
       const btnClick = () => {
-        var xhttp = new XMLHttpRequest();
+        //pasar para otra ventana
+        this.props.navigation.navigate("Pantalla2")
+
+
+
+        /*var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
@@ -23,7 +29,7 @@ export default class Login extends Component {
     }
 };
 xhttp.open("GET", "http://148.202.152.33/ws_claseaut.php?codigo="+this.state.codigo+"&nip="+this.state.nip, true);
-xhttp.send();
+xhttp.send();*/
       }
     return (
       <View style={styles.screen}>
