@@ -15,26 +15,30 @@ export default class Login extends Component {
 
   render() {
       //programacion en JS de los objetos
+      var pasar=this.props
       const btnClick = () => {
         //pasar para otra ventana
-        this.props.navigation.navigate("Pantalla2")
-
-
-
-        /*var xhttp = new XMLHttpRequest();
+        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
-          console.log(xhttp.responseText);
-    }
+          var result=(xhttp.responseText);   
+          if (result== 0) {
+            alert("Datos Incorrectos");
+          }
+          else{
+            pasar=pasar.navigation.navigate("Pantalla2")
+            console.log(result); 
+          }
+        }
 };
 xhttp.open("GET", "http://148.202.152.33/ws_claseaut.php?codigo="+this.state.codigo+"&nip="+this.state.nip, true);
-xhttp.send();*/
+xhttp.send();
       }
     return (
       <View style={styles.screen}>
         <Text style={styles.textoudg}> UDG </Text>
-        <Image style={styles.logoudg} source={require("./Imagenes/logoudg.png")}/>
+        <Image style={styles.logoudg} source={require("./imagen/Logo.png")}/>
         <TextInput style={styles.input} placeholder="codigo" keyboardType='numeric' onChangeText={codigo => this.setState({codigo})}/>
         <TextInput style={styles.input} placeholder="nip" secureTextEntry={true} onChangeText={nip => this.setState({nip})}/>
         <View style={styles.boton}>
