@@ -15,7 +15,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={LOGIN} />
-        <Stack.Screen name="Pantalla2" component={PANTALLAB} />
+        <Stack.Screen name="Pantalla2" component={PANTALLAB} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
