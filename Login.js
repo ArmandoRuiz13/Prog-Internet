@@ -15,7 +15,7 @@ export default class Login extends Component {
 
   render() {
       //programacion en JS de los objetos
-      var pasar=this.props
+      var pasar=this.props;
       const btnClick = () => {
         //pasar para otra ventana
         var xhttp = new XMLHttpRequest();
@@ -27,8 +27,10 @@ export default class Login extends Component {
             alert("Datos Incorrectos");
           }
           else{
-            pasar=pasar.navigation.navigate("Pantalla2")
-            console.log(result); 
+            let recibe = xhttp.responseText
+            let datos= recibe.split(",")
+            console.log(datos[2])
+            pasar=pasar.navigation.navigate("Pantalla2",{nombre:datos[2],codigo:datos[1]})
           }
         }
 };
@@ -38,7 +40,7 @@ xhttp.send();
     return (
       <View style={styles.screen}>
         <Text style={styles.textoudg}> UDG </Text>
-        <Image style={styles.logoudg} source={require("./imagen/Logo.png")}/>
+        <Image style={styles.logoudg} source={require("./Imagen/Logo.png")}/>
         <TextInput style={styles.input} placeholder="codigo" keyboardType='numeric' onChangeText={codigo => this.setState({codigo})}/>
         <TextInput style={styles.input} placeholder="nip" secureTextEntry={true} onChangeText={nip => this.setState({nip})}/>
         <View style={styles.boton}>
