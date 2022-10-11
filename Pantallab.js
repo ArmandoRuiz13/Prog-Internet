@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList,StyleSheet } from 'react-native';
+import { View, Text, FlatList,StyleSheet, TouchableOpacity } from 'react-native';
 
 export default class Pantallab extends Component {
   constructor(props) {
@@ -25,14 +25,22 @@ export default class Pantallab extends Component {
 }
 // {this.props.route.params.nombre} parametro para recibir
   render() {
+    var pasar=this.props;
+    const getItem=(numeroCelda,nombreMono,codigoMono,imagenMono)=>{
+      console.log(numeroCelda);
+      //ir a la siguiente ventana con variables
+      pasar=pasar.navigation.navigate("Id",{id:numeroCelda,nombre:nombreMono,codigo:codigoMono,imagen:imagenMono})
+    }
     let recibir= this.props.route.params
     const celda =({item})=>{
       return(
       <View style ={{margin:10,borderWidth:1,borderBottomColor:"black",marginBottom:80}}>
-        <Text  style={styles.texts}>ID: {item.id}</Text>
-        <Text style={styles.texts} >Nombre: {item.Nombre}</Text>
-        <Text style={styles.texts}>Codigo: {item.Codigo}</Text>
-        <Text style={styles.texts}>Tarea: {item.Tarea}</Text>
+        <TouchableOpacity onPress={()=>getItem(item.id,item.Nombre,item.Codigo,item.Imagen)}>
+          <Text  style={styles.texts}>ID: {item.id}</Text>
+          <Text style={styles.texts} >Nombre: {item.Nombre}</Text>
+          <Text style={styles.texts}>Codigo: {item.Codigo}</Text>
+          <Text style={styles.texts}>Tarea: {item.Tarea}</Text>
+        </TouchableOpacity>
       </View>
       )
     }
@@ -62,4 +70,3 @@ const styles = StyleSheet.create({
     backgroundColor:"black",
   }
 });
-

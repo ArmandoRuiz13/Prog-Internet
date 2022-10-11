@@ -30,7 +30,7 @@ export default class Login extends Component {
             let recibe = xhttp.responseText
             let datos= recibe.split(",")
             console.log(datos[2])
-            pasar=pasar.navigation.navigate("Pantalla2",{nombre:datos[2],codigo:datos[1]})
+            pasar=pasar.navigation.navigate("Acciones",{nombre:datos[2],codigo:datos[1]})
           }
         }
 };
