@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList,StyleSheet } from 'react-native';
 
 export default class Pantallab extends Component {
   constructor(props) {
@@ -28,18 +28,18 @@ export default class Pantallab extends Component {
     let recibir= this.props.route.params
     const celda =({item})=>{
       return(
-      <View style ={{margin:10,borderWidth:1,borderBottomColor:"black",marginBottom:50}}>
-        <Text>id: {item.id}</Text>
-        <Text>Nombre: {item.Nombre}</Text>
-        <Text>Codigo: {item.Codigo}</Text>
-        <Text>Tarea: {item.Tarea}</Text>
+      <View style ={{margin:10,borderWidth:1,borderBottomColor:"black",marginBottom:80}}>
+        <Text  style={styles.texts}>ID: {item.id}</Text>
+        <Text style={styles.texts} >Nombre: {item.Nombre}</Text>
+        <Text style={styles.texts}>Codigo: {item.Codigo}</Text>
+        <Text style={styles.texts}>Tarea: {item.Tarea}</Text>
       </View>
       )
     }
     return (
       <View> 
-        <Text> Bienvenido: {recibir.nombre}</Text>
-        <Text> Codigo: {recibir.codigo} </Text>
+        <Text style={styles.textst}> Bienvenido: {recibir.nombre}</Text>
+        <Text style={styles.textst}> Codigo: {recibir.codigo} </Text>
         <FlatList
         data={this.state.datosServer}
         renderItem={celda}
@@ -50,3 +50,16 @@ export default class Pantallab extends Component {
     );
   }
 }
+const styles = StyleSheet.create({
+  texts:{
+    fontSize:20,
+    color:"orange",
+    backgroundColor:"gray",
+  },
+  textst:{
+    fontSize:20,
+    color:"red",
+    backgroundColor:"black",
+  }
+});
+
