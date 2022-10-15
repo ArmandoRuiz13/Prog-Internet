@@ -8,6 +8,8 @@ import LOGIN from "./Login";
 import PANTALLAB from './Pantallab';
 import ID from './Id';
 import ACCIONES from './Acciones';
+import ALTAS from './Altas';
+import BAJAS from './Bajas';
 
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +22,8 @@ function App() {
         <Stack.Screen name="Pantalla2" component={PANTALLAB} options={{headerShown: false}} />
         <Stack.Screen name="Id" component={ID} />
         <Stack.Screen name="Acciones" component={ACCIONES} />
+        <Stack.Screen name="Altas" component={ALTAS} />
+        <Stack.Screen name="Bajas" component={BAJAS} />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -40,7 +40,7 @@ xhttp.send();
     return (
       <View style={styles.screen}>
         <Text style={styles.textoudg}> UDG </Text>
-        <Image style={styles.logoudg} source={require("./Imagen/Logo.png")}/>
+        <Image style={styles.logoudg} source={require("./Imagenes/logoudg.png")}/>
         <TextInput style={styles.input} placeholder="codigo" keyboardType='numeric' onChangeText={codigo => this.setState({codigo})}/>
         <TextInput style={styles.input} placeholder="nip" secureTextEntry={true} onChangeText={nip => this.setState({nip})}/>
         <View style={styles.boton}>
