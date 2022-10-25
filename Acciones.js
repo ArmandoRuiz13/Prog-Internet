@@ -17,7 +17,7 @@ export default class Acciones extends Component {
         <Text> Codigo:{recibir.codigo} </Text>
         <Button title='Altas' onPress={() => pasar.navigation.navigate("Altas",{nombre:recibir.nombre,codigo:recibir.codigo})}/>
         <Button title='Bajas' onPress={() => pasar.navigation.navigate("Bajas",{nombre:recibir.nombre,codigo:recibir.codigo})}/>
-        <Button title='Cambios'/>
+        <Button title='Cambios' onPress={() => pasar.navigation.navigate("Modificaciones",{nombre:recibir.nombre,codigo:recibir.codigo})} />
         <Button title='Lista' onPress={() => pasar.navigation.navigate("Pantalla2",{nombre:recibir.nombre,codigo:recibir.codigo})}/>
       </View>
     );

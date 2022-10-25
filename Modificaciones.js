@@ -9,6 +9,9 @@ export default class Bajas extends Component {
         super(props);
         this.state = {
             datosServer: "",
+            codigo: "",
+            imagen: "",
+            tarea: "",
             nombre: "",
         };
       }
@@ -23,7 +26,7 @@ export default class Bajas extends Component {
           //crear arreglo con los nombres de los registros
             var arreglo=[];
             for (let i = 0; i < datos.length; i++) {
-                arreglo.push(datos[i].Nombre);
+                arreglo.push(datos[i].Codigo);
             }
           _this.setState({datosServer:arreglo});
         }
@@ -34,14 +37,17 @@ export default class Bajas extends Component {
     render() {
         const RestaurarValores = () => {  
             this.setState({nombre: ""});
+            this.setState({codigo: ""});
+            this.setState({imagen: ""});
+            this.setState({tarea: ""});
           }
       
           const Exito = () => {
-            alert("El registro se ha dado de baja correctamente");
+            alert("El registro se ha modificado correctamente");
           }
       
           const MensajeError = () => {
-            alert("No se pudo dar de baja el registro");
+            alert("No se pudo modificar el registro");
           }
         let _this = this
         const PressedButton = () => {
@@ -60,7 +66,7 @@ export default class Bajas extends Component {
                     }
                   }
               };
-              xhttp.open("GET", "https://pinternet13.000webhostapp.com/Bajas.php?nombre='"+_this.state.nombre+"'", true);      
+              xhttp.open("GET", "https://pinternet13.000webhostapp.com/modificar.php?codigo="+this.state.codigo+"&tarea="+this.state.Tarea+"&imagen="+this.state.Imagen, true);   
               xhttp.send();
             }
         }
@@ -68,11 +74,11 @@ export default class Bajas extends Component {
         const countries = this.state.datosServer;
         return (
             <View>
-                <Text style={{fontSize:30,margin: 10}}>Registro a eliminar:</Text>
+                <Text style={{fontSize:30,margin: 10}}>Registro a modificar:</Text>
                 <SelectDropdown style={{margin: 10, backgroundColor: '#fff', borderRadius: 5, borderWidth: 1, borderColor: '#ccc', padding: 10, width: 300, height: 50}}
                     data={countries}
                     onSelect={(selectedItem, index) => {
-                        this.setState({nombre: selectedItem});
+                        this.setState({codigo: selectedItem});
                         console.log(selectedItem, index)
                     }}
                     buttonTextAfterSelection={(selectedItem, index) => {
@@ -84,12 +90,23 @@ export default class Bajas extends Component {
                 />
                 <View style={{marginLeft:85, borderWidth:2, borderColor:"#460089",
                 textAlign:'center', heigh:60, maxWidth:240, fontSize: 20, marginBottom:25,}}>
+                <Text >Tarea:</Text>
                 <TextInput
-                placeholderTextColor="#000"/>
+                placeholderTextColor="#000"
+                placeholder="" 
+                onChangeText = {tarea => this.setState({tarea})}  />
                 </View>
-                <Button title = 'Dar de baja' onPress={() => PressedButton()}>
+                <View style={{marginLeft:85, borderWidth:2, borderColor:"#460089",
+                textAlign:'center', heigh:60, maxWidth:240, fontSize: 20, marginBottom:25,}}>
+                <Text >Imagen:</Text>
+                <TextInput
+                placeholderTextColor="#000"
+                placeholder="" 
+                onChangeText = {imagen => this.setState({imagen})}  />
+                </View>
+                <Button title = 'Continuar' onPress={() => PressedButton()}>
                 </Button>
-            </View>
+                </View>
             
         )
   }        
