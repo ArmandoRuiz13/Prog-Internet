@@ -65,12 +65,12 @@ export default class Bajas extends Component {
             }
         }
 
-        const countries = this.state.datosServer;
+        const informacion = this.state.datosServer;
         return (
             <View>
                 <Text style={{fontSize:30,margin: 10}}>Registro a eliminar:</Text>
                 <SelectDropdown style={{margin: 10, backgroundColor: '#fff', borderRadius: 5, borderWidth: 1, borderColor: '#ccc', padding: 10, width: 300, height: 50}}
-                    data={countries}
+                    data={informacion}
                     onSelect={(selectedItem, index) => {
                         this.setState({nombre: selectedItem});
                         console.log(selectedItem, index)
@@ -82,11 +82,6 @@ export default class Bajas extends Component {
                         return item
                     }}
                 />
-                <View style={{marginLeft:85, borderWidth:2, borderColor:"#460089",
-                textAlign:'center', heigh:60, maxWidth:240, fontSize: 20, marginBottom:25,}}>
-                <TextInput
-                placeholderTextColor="#000"/>
-                </View>
                 <Button title = 'Dar de baja' onPress={() => PressedButton()}>
                 </Button>
             </View>
